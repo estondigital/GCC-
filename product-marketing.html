@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Product Marketing Services — Jithin George</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ── PAGE HERO ── */
+.page-hero{
+  padding:calc(var(--nav-h) + 5rem) 0 5rem;
+  background:linear-gradient(160deg,#0A1F18 0%,#0C2B20 60%,#0A1A13 100%);
+  position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:'';position:absolute;width:700px;height:700px;border-radius:50%;
+  background:radial-gradient(circle,rgba(20,184,138,0.15) 0%,transparent 65%);
+  top:-200px;right:-150px;pointer-events:none;
+}
+.page-hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center}
+.ph-eyebrow{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-3);margin-bottom:1.2rem;display:inline-flex;align-items:center;gap:9px;opacity:0;animation:fadeUp .6s .05s ease forwards}
+.ph-eyebrow::before{content:'';width:24px;height:1px;background:var(--teal-3)}
+.ph-h1{font-family:'Fraunces',serif;font-size:clamp(38px,6vw,72px);line-height:1.04;font-weight:500;color:var(--white);letter-spacing:-.4px;opacity:0;animation:fadeUp .6s .15s ease forwards}
+.ph-h1 em{font-style:italic;color:var(--teal-3)}
+.ph-p{font-size:14px;color:#9A9690;line-height:1.75;font-weight:300;max-width:460px;margin:1.4rem 0 2rem;opacity:0;animation:fadeUp .6s .25s ease forwards}
+.ph-actions{display:flex;gap:11px;flex-wrap:wrap;opacity:0;animation:fadeUp .6s .35s ease forwards}
+.btn-outline-white{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:transparent;color:var(--white);padding:13px 26px;border-radius:2px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.btn-outline-white:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.5);transform:translateY(-1px)}
+.ph-right{opacity:0;animation:fadeUp .6s .3s ease forwards}
+.stat-dark-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);border-radius:3px;overflow:hidden}
+.sdc{background:rgba(255,255,255,0.03);padding:1.4rem;transition:background .2s}
+.sdc:hover{background:rgba(255,255,255,0.06)}
+.sdc .n{font-family:'Fraunces',serif;font-size:36px;font-style:italic;color:var(--teal-3);line-height:1}
+.sdc .l{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#666;margin-top:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SERVICES DETAIL ── */
+.svc-detail{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.svc-d-card{
+  background:var(--cream);border:1px solid var(--border);border-top:2.5px solid var(--teal);
+  border-radius:0 0 3px 3px;padding:1.8rem;
+  transition:transform .2s,box-shadow .2s;
+}
+.svc-d-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,0.07)}
+.sdc-icon{font-size:26px;margin-bottom:.8rem;display:block;transition:transform .3s}
+.svc-d-card:hover .sdc-icon{transform:scale(1.1) rotate(-5deg)}
+.svc-d-card h3{font-family:'Fraunces',serif;font-size:20px;font-weight:500;margin-bottom:.5rem}
+.svc-d-card h3 em{font-style:italic;color:var(--teal)}
+.svc-d-card .desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:1rem}
+.deliverables{list-style:none;display:flex;flex-direction:column;gap:5px}
+.deliverables li{font-size:12px;color:var(--muted);padding-left:16px;position:relative;font-weight:300}
+.deliverables li::before{content:'›';position:absolute;left:0;color:var(--teal);font-weight:700;font-size:14px;top:-1px}
+
+/* ── IDEAL FOR ── */
+.ideal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.ideal-item{background:var(--cream);padding:1.6rem;transition:background .2s}
+.ideal-item:hover{background:var(--white)}
+.ideal-item .ico{font-size:24px;margin-bottom:.7rem}
+.ideal-item h4{font-size:14px;font-weight:600;margin-bottom:.3rem}
+.ideal-item p{font-size:12px;color:var(--muted);line-height:1.6;font-weight:300}
+
+/* ── CASE STUDY ── */
+.case-strip{background:var(--white);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.case-hdr{background:var(--teal);padding:1.2rem 1.8rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.case-hdr h4{font-family:'Fraunces',serif;font-size:20px;font-style:italic;color:var(--white)}
+.case-hdr .type{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.6)}
+.case-body{padding:1.8rem;display:grid;grid-template-columns:1fr 1.2fr;gap:2rem}
+.case-kpis{display:flex;flex-wrap:wrap;gap:.5rem}
+.case-kpi{font-size:11px;font-weight:600;padding:4px 12px;border-radius:2px}
+.case-kpi.pos{background:rgba(12,107,82,0.1);color:var(--teal);border:1px solid rgba(12,107,82,0.2)}
+.case-kpi.neg{background:rgba(192,57,43,0.08);color:var(--red);border:1px solid rgba(192,57,43,0.2)}
+
+/* ── TOOLS ── */
+.tools-grid{display:flex;flex-wrap:wrap;gap:8px}
+.tool-chip{font-size:11px;font-weight:500;padding:6px 13px;border-radius:2px;background:var(--cream);border:1px solid var(--border);color:var(--muted)}
+.tool-chip.hi{background:rgba(12,107,82,0.08);color:var(--teal);border-color:rgba(12,107,82,0.2);font-weight:600}
+
+@media(max-width:900px){
+  .page-hero-grid{grid-template-columns:1fr;gap:2.5rem}
+  .svc-detail{grid-template-columns:1fr}
+  .ideal-grid{grid-template-columns:1fr 1fr}
+  .case-body{grid-template-columns:1fr}
+}
+@media(max-width:560px){.ideal-grid{grid-template-columns:1fr}.stat-dark-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">Jithin <em>George</em></a>
+  <button class="nav-toggle" id="navT" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navL">
+    <a href="index.html">Home</a>
+    <a href="product-marketing.html" class="active">Product Marketing</a>
+    <a href="demand-gen.html">Demand Gen</a>
+    <a href="growth-marketing.html">Growth Marketing</a>
+    <a href="index.html#diagnose" class="nav-cta">Free Diagnosis</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-grid">
+      <div>
+        <div class="ph-eyebrow">Product Marketing Services</div>
+        <h1 class="ph-h1">Make your product<br><em>impossible to ignore.</em></h1>
+        <p class="ph-p">From ICP definition to competitive battlecards to full launch execution — I build the positioning and enablement infrastructure that lets B2B SaaS companies win deals they should win.</p>
+        <div class="ph-actions">
+          <a href="index.html#diagnose" class="btn-primary">Get Free PMM Diagnosis →</a>
+          <a href="https://wa.me/919895391057" target="_blank" class="btn-outline-white">📱 WhatsApp Me</a>
+        </div>
+      </div>
+      <div class="ph-right">
+        <div class="stat-dark-grid">
+          <div class="sdc"><div class="n">+30%</div><div class="l">Demo Request Lift</div></div>
+          <div class="sdc"><div class="n">+25%</div><div class="l">Product Adoption</div></div>
+          <div class="sdc"><div class="n">−15%</div><div class="l">Sales Cycle Reduction</div></div>
+          <div class="sdc"><div class="n">+22%</div><div class="l">CTR on Paid Ads</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">GTM Strategy</span><span class="marquee-item">Product Positioning</span><span class="marquee-item">ICP Definition</span><span class="marquee-item">Competitive Intelligence</span><span class="marquee-item">Sales Enablement</span><span class="marquee-item">Product Launches</span><span class="marquee-item">Win/Loss Analysis</span><span class="marquee-item">Category Design</span><span class="marquee-item">Messaging Frameworks</span><span class="marquee-item">Buyer Personas</span><span class="marquee-item">GTM Strategy</span><span class="marquee-item">Product Positioning</span><span class="marquee-item">ICP Definition</span><span class="marquee-item">Competitive Intelligence</span><span class="marquee-item">Sales Enablement</span><span class="marquee-item">Product Launches</span><span class="marquee-item">Win/Loss Analysis</span><span class="marquee-item">Category Design</span><span class="marquee-item">Messaging Frameworks</span><span class="marquee-item">Buyer Personas</span>
+  </div>
+</div>
+
+<!-- SERVICES DETAIL -->
+<section class="section-pad fi">
+  <div class="wrap">
+    <div class="section-label">What's included</div>
+    <h2 class="section-h">Full-stack PMM, <em>zero gaps.</em></h2>
+    <p class="section-sub" style="margin-bottom:2.5rem">Every engagement is senior-level. I don't hand off to juniors. You get my full attention on your product and market.</p>
+    <div class="svc-detail">
+      <div class="svc-d-card">
+        <span class="sdc-icon">🗺️</span>
+        <h3>GTM Strategy & <em>Launch</em></h3>
+        <p class="desc">Full go-to-market playbooks for new products, features, or market entries — from ICP definition to launch calendar to post-launch optimization.</p>
+        <ul class="deliverables">
+          <li>ICP & buyer persona workshop + documentation</li>
+          <li>Full launch playbook (pre, during, post)</li>
+          <li>Feature adoption program design</li>
+          <li>Launch messaging & positioning brief</li>
+          <li>Sales & CS launch training materials</li>
+          <li>Post-launch metrics dashboard setup</li>
+        </ul>
+      </div>
+      <div class="svc-d-card">
+        <span class="sdc-icon">💬</span>
+        <h3>Positioning & <em>Messaging</em></h3>
+        <p class="desc">Build a messaging architecture that makes your differentiation undeniable — from homepage headline to sales deck to customer story.</p>
+        <ul class="deliverables">
+          <li>Competitive landscape analysis & positioning map</li>
+          <li>Value proposition framework per ICP segment</li>
+          <li>Messaging hierarchy (primary, secondary, proof)</li>
+          <li>Buyer narrative for each funnel stage</li>
+          <li>Website copy brief & review</li>
+          <li>Messaging testing framework</li>
+        </ul>
+      </div>
+      <div class="svc-d-card">
+        <span class="sdc-icon">🤝</span>
+        <h3>Sales <em>Enablement</em></h3>
+        <p class="desc">Give your sales team what they actually need to close — not another deck they'll ignore, but tools built around how buyers actually buy.</p>
+        <ul class="deliverables">
+          <li>Pitch deck design & narrative (new or refresh)</li>
+          <li>Competitive battlecards per key competitor</li>
+          <li>Objection-handling playbook</li>
+          <li>Case studies & customer proof templates</li>
+          <li>Sales discovery call guide</li>
+          <li>One-pagers per ICP segment or use case</li>
+        </ul>
+      </div>
+      <div class="svc-d-card">
+        <span class="sdc-icon">🔬</span>
+        <h3>Competitive <em>Intelligence</em></h3>
+        <p class="desc">Know where you win, where you lose, and exactly why — so you can position against alternatives with precision, not guesswork.</p>
+        <ul class="deliverables">
+          <li>Win/loss interview program (buyers + churned)</li>
+          <li>Competitor deep-dive reports (up to 5 players)</li>
+          <li>Category positioning map & whitespace analysis</li>
+          <li>Ongoing competitive monitoring setup</li>
+          <li>Category design brief (for market leadership plays)</li>
+        </ul>
+      </div>
+      <div class="svc-d-card" id="fractional">
+        <span class="sdc-icon">⚡</span>
+        <h3>Fractional <em>PMM</em></h3>
+        <p class="desc">Embedded senior product marketing, on a part-time basis. Ideal for Series A–B companies that need serious PMM expertise but aren't ready to hire full-time.</p>
+        <ul class="deliverables">
+          <li>Dedicated 2–3 days/week engagement</li>
+          <li>Attend product & marketing syncs</li>
+          <li>Own positioning, messaging & launches</li>
+          <li>Direct Slack/WhatsApp access</li>
+          <li>Quarterly strategy reviews</li>
+          <li>Minimum 3-month engagements</li>
+        </ul>
+      </div>
+      <div class="svc-d-card">
+        <span class="sdc-icon">🔍</span>
+        <h3>Website & Messaging <em>Audit</em></h3>
+        <p class="desc">A rapid, senior-level audit of your homepage, pricing page, and key landing pages — with prioritised rewrites and conversion recommendations.</p>
+        <ul class="deliverables">
+          <li>Full homepage copy audit + rewrite</li>
+          <li>Pricing page messaging review</li>
+          <li>Top 3 landing page recommendations</li>
+          <li>Buyer clarity score per page</li>
+          <li>Quick-win vs strategic fix prioritisation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IDEAL FOR -->
+<section class="section-pad-sm fi" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="section-label">Ideal for</div>
+    <h2 class="section-h" style="margin-bottom:2rem">Who this is <em>built for.</em></h2>
+    <div class="ideal-grid">
+      <div class="ideal-item"><div class="ico">🌱</div><h4>Early-Stage Founders</h4><p>Series A/B founders who need PMM expertise before hiring full-time — product-market fit validation, first positioning, and launch strategy.</p></div>
+      <div class="ideal-item"><div class="ico">📣</div><h4>Marketing Leaders</h4><p>VPs and CMOs who need a senior PMM to own a product line, launch, or messaging overhaul while the in-house team stays focused.</p></div>
+      <div class="ideal-item"><div class="ico">🏢</div><h4>Enterprise Teams</h4><p>Established SaaS companies entering new markets, launching new products, or needing competitive intelligence to win enterprise deals.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section-pad fi">
+  <div class="wrap">
+    <div class="section-label">Case Study</div>
+    <h2 class="section-h" style="margin-bottom:2rem">Product marketing that <em>moved the needle.</em></h2>
+    <div class="case-strip">
+      <div class="case-hdr">
+        <h4>Good Methods Global · CareStack & CareRevenue</h4>
+        <span class="type">B2B SaaS · Dental Practice Management · Series-funded, US market</span>
+      </div>
+      <div class="case-body">
+        <div>
+          <div class="section-label" style="margin-bottom:.8rem">KPIs Achieved</div>
+          <div class="case-kpis">
+            <span class="case-kpi pos">+25% product adoption</span>
+            <span class="case-kpi pos">+30% demo requests</span>
+            <span class="case-kpi pos">+22% CTR on campaigns</span>
+            <span class="case-kpi pos">+10% revenue growth</span>
+            <span class="case-kpi pos">35% webinar-to-demo</span>
+            <span class="case-kpi neg">−15% sales cycle</span>
+            <span class="case-kpi neg">−18% CPL</span>
+            <span class="case-kpi pos">60% organic growth</span>
+          </div>
+          <div style="margin-top:1.5rem;font-size:13px;color:var(--muted);line-height:1.7;font-weight:300">Worked as Product Marketing Lead and Demand Generation Lead. Owned full GTM motion from positioning through pipeline.</div>
+        </div>
+        <div>
+          <div class="section-label" style="margin-bottom:.8rem">Strategies Used</div>
+          <ul class="deliverables" style="gap:7px">
+            <li>Rebuilt ICP definition and buyer persona set from scratch</li>
+            <li>Developed new competitive positioning framework vs. leading US incumbents</li>
+            <li>Launched Account-Based Marketing (ABM) for enterprise dental groups</li>
+            <li>Built HubSpot lifecycle automation & lead scoring model</li>
+            <li>Created webinar-to-demo conversion funnel (35% conversion rate)</li>
+            <li>G2 & Capterra review growth program — improved category rankings</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL + TOOLS -->
+<section class="section-pad-sm fi" style="background:var(--white);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="g2" style="gap:3rem;align-items:start">
+      <div>
+        <div class="section-label">Testimonial</div>
+        <div class="testi" style="margin-top:1rem">
+          <div class="testi-text">"Jithin restructured our entire positioning framework. Within two quarters, our demo conversion rate jumped 30% and the sales team finally had something they could actually use in the field."</div>
+          <div class="testi-author">VP Marketing, B2B SaaS</div>
+          <div class="testi-role">Dental Practice Management · Series-funded, US market</div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Tools & Platforms</div>
+        <p class="section-sub" style="max-width:100%;margin-bottom:1.2rem;font-size:13px">Tools I work with across PMM engagements.</p>
+        <div class="tools-grid">
+          <span class="tool-chip hi">Notion</span><span class="tool-chip hi">Figma</span><span class="tool-chip hi">Claude AI</span><span class="tool-chip hi">Clay</span>
+          <span class="tool-chip">G2 · Capterra</span><span class="tool-chip">Canva</span><span class="tool-chip">HubSpot</span><span class="tool-chip">Salesforce</span>
+          <span class="tool-chip">Loom</span><span class="tool-chip">Typeform</span><span class="tool-chip">Hotjar</span><span class="tool-chip">Google Analytics 4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band" data-text="PMM">
+  <h2>Ready to build <em>positioning that sticks?</em></h2>
+  <p>Tell me about your product and where messaging is breaking down.</p>
+  <div class="cta-actions">
+    <a href="index.html#diagnose" class="btn-primary">Get Free PMM Diagnosis →</a>
+    <a href="https://wa.me/919895391057" target="_blank" class="btn-wa">📱 WhatsApp Me</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div><div class="footer-brand">Jithin <em>George</em></div><div class="footer-desc">Senior Product Marketing Consultant · B2B SaaS · GTM & Revenue Growth.</div></div>
+  <div class="footer-col"><h5>Services</h5><a href="product-marketing.html">Product Marketing</a><a href="demand-gen.html">Demand Generation</a><a href="growth-marketing.html">Growth Marketing</a><a href="#fractional">Fractional PMM</a></div>
+  <div class="footer-col"><h5>Quick Links</h5><a href="index.html">Home</a><a href="index.html#diagnose">Free Diagnosis</a><a href="https://linkedin.com/in/jithingeorge-marketing-strategist" target="_blank">LinkedIn</a></div>
+  <div class="footer-col"><h5>Contact</h5><a href="mailto:4jithin@gmail.com">4jithin@gmail.com</a><a href="https://wa.me/919895391057" target="_blank">+91-98953 91057</a></div>
+</footer>
+<div class="footer-bar"><span>© 2025 Jithin George · Product Marketing Consultant</span><span><a href="mailto:4jithin@gmail.com">4jithin@gmail.com</a></span></div>
+<a class="wa-float" href="https://wa.me/919895391057" target="_blank">📱</a>
+
+<script>
+function toggleNav(){const t=document.getElementById('navT'),l=document.getElementById('navL');t.classList.toggle('open');l.classList.toggle('open')}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('navT').classList.remove('open');document.getElementById('navL').classList.remove('open')}));
+const io=new IntersectionObserver(els=>els.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:0.08});
+document.querySelectorAll('.fi').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

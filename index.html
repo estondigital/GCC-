@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Jithin George — B2B SaaS Marketing Consultant</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:calc(var(--nav-h) + 5rem) 0 5rem;
+  position:relative;overflow:hidden;
+}
+.hero-bg-word{
+  position:absolute;right:-3%;top:50%;transform:translateY(-50%);
+  font-family:'Fraunces',serif;font-size:clamp(110px,18vw,280px);
+  color:transparent;-webkit-text-stroke:1px rgba(12,107,82,0.1);
+  pointer-events:none;user-select:none;white-space:nowrap;font-style:italic;
+  animation:floatWord 10s ease-in-out infinite alternate;
+}
+@keyframes floatWord{from{transform:translateY(-50%) translateX(0)}to{transform:translateY(-53%) translateX(-1.5%)}}
+.hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:center}
+.hero-eyebrow{
+  font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:1.4rem;
+  display:inline-flex;align-items:center;gap:10px;
+  opacity:0;animation:fadeUp .7s .05s ease forwards;
+}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--teal)}
+.hero-h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(42px,6.5vw,84px);
+  line-height:1.02;font-weight:500;letter-spacing:-.5px;
+  opacity:0;animation:fadeUp .7s .15s ease forwards;
+}
+.hero-h1 em{font-style:italic;color:var(--teal)}
+.hero-h1 .indent{display:block;padding-left:clamp(50px,7vw,120px)}
+.hero-p{
+  font-size:15px;color:var(--muted);line-height:1.75;font-weight:300;
+  max-width:460px;margin:1.6rem 0 2.4rem;
+  opacity:0;animation:fadeUp .7s .25s ease forwards;
+}
+.hero-actions{
+  display:flex;gap:12px;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .7s .35s ease forwards;
+}
+.hero-stat-row{
+  margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--border);
+  display:flex;gap:3rem;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .7s .45s ease forwards;
+}
+
+.hero-right{opacity:0;animation:fadeUp .7s .3s ease forwards}
+.service-preview-grid{display:flex;flex-direction:column;gap:.6rem}
+.spv{
+  background:var(--cream);border:1px solid var(--border);border-radius:3px;
+  padding:1rem 1.3rem;display:flex;align-items:center;justify-content:space-between;
+  text-decoration:none;color:var(--ink);
+  transition:background 0.2s,transform 0.2s,border-color 0.2s;
+  gap:10px;
+}
+.spv:hover{background:var(--white);transform:translateX(4px);border-color:var(--teal)}
+.spv-left{display:flex;align-items:center;gap:12px}
+.spv-icon{font-size:20px}
+.spv-label{font-size:13px;font-weight:500}
+.spv-sub{font-size:11px;color:var(--muted);margin-top:1px;font-weight:300}
+.spv-arrow{font-size:16px;color:var(--teal);transition:transform 0.2s;flex-shrink:0}
+.spv:hover .spv-arrow{transform:translateX(3px)}
+.spv-tag{
+  font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:3px 9px;border-radius:2px;flex-shrink:0;
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── ABOUT STRIP ── */
+.about-strip{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.about-inner{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:center;padding:4rem 0}
+.about-img-ph{
+  aspect-ratio:4/3;background:linear-gradient(135deg,#E8F5F0 0%,#C4E8DB 100%);
+  border-radius:3px;display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;font-size:72px;font-style:italic;color:var(--teal);
+  border:1px solid var(--border);position:relative;overflow:hidden;
+}
+.about-img-ph::after{content:'9+';position:absolute;bottom:1rem;right:1rem;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);background:rgba(255,255,255,0.8);padding:4px 10px;border-radius:2px}
+.about-text .section-h{margin-bottom:.8rem}
+.kpi-list{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.kpi-item{
+  font-size:11px;font-weight:600;
+  padding:4px 12px;border-radius:2px;
+  background:rgba(12,107,82,0.08);color:var(--teal);border:1px solid rgba(12,107,82,0.18);
+}
+.kpi-item.red{background:rgba(192,57,43,0.08);color:var(--red);border-color:rgba(192,57,43,0.2)}
+
+/* ── SERVICE CARDS ── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.svc-card{
+  background:var(--cream);padding:2rem 1.7rem;
+  transition:background 0.2s;
+  text-decoration:none;color:var(--ink);display:block;
+}
+.svc-card:hover{background:var(--white)}
+.svc-icon{font-size:28px;margin-bottom:1rem;display:block;transition:transform 0.3s}
+.svc-card:hover .svc-icon{transform:scale(1.1) rotate(-5deg)}
+.svc-card h3{font-family:'Fraunces',serif;font-size:20px;font-weight:500;line-height:1.2;margin-bottom:.5rem}
+.svc-card h3 em{font-style:italic;color:var(--teal)}
+.svc-card p{font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:1rem}
+.svc-link{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:5px}
+.svc-link::after{content:'→';transition:transform 0.2s}
+.svc-card:hover .svc-link::after{transform:translateX(3px)}
+
+/* ── PROCESS ── */
+.process-horiz{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.ph-item{background:var(--cream);padding:1.8rem 1.4rem;transition:background 0.2s}
+.ph-item:hover{background:var(--white)}
+.ph-n{font-family:'Fraunces',serif;font-size:36px;font-style:italic;color:var(--teal);line-height:1;margin-bottom:.5rem}
+.ph-title{font-size:14px;font-weight:600;margin-bottom:.4rem}
+.ph-desc{font-size:12px;color:var(--muted);line-height:1.6;font-weight:300}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem}
+
+/* ── FORM ── */
+.form-section{background:var(--ink)}
+.form-wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:5rem;align-items:start;padding:6rem 0}
+.form-lhs .section-h{color:var(--white);margin-bottom:.8rem}
+.form-lhs .section-sub{color:#9A9690}
+.promise-list{display:flex;flex-direction:column;gap:12px;margin-top:2rem}
+.promise-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#9A9690;line-height:1.6;font-weight:300}
+.promise-dot{width:18px;height:18px;border-radius:50%;background:var(--teal-glow);border:1px solid var(--teal-3);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:8px;color:var(--teal-3);font-weight:700}
+
+.form-panel{background:#111110;border:1px solid #222220;border-radius:4px;overflow:hidden}
+.form-panel-hdr{background:#181816;border-bottom:1px solid #222220;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
+.step-dots{display:flex;gap:7px}
+.sdot{width:7px;height:7px;border-radius:50%;background:#2A2A28;transition:background 0.3s,transform 0.3s}
+.sdot.active{background:var(--teal-3);transform:scale(1.3)}
+.sdot.done{background:var(--teal)}
+.step-lbl{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#444}
+.form-step{display:none;padding:22px 20px;animation:stepIn .3s ease both}
+.form-step.active{display:block}
+@keyframes stepIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:translateX(0)}}
+.step-q{font-family:'Fraunces',serif;font-size:19px;color:var(--white);line-height:1.3;margin-bottom:.35rem}
+.step-q em{font-style:italic;color:var(--teal-3)}
+.step-hint{font-size:11px;color:#444;margin-bottom:1.2rem}
+.pill-choices{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.2rem}
+.pill{font-size:11px;font-weight:500;padding:7px 13px;border-radius:2px;cursor:pointer;background:#1A1A18;color:#666;border:1px solid #2A2A28;transition:all .15s;user-select:none}
+.pill:hover{border-color:#444;color:#AAA}
+.pill.sel{background:var(--teal);color:var(--white);border-color:var(--teal)}
+.fi-group{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.fi-label{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#444}
+.fi-input,.fi-ta{width:100%;background:#181816;border:1px solid #222220;border-radius:3px;color:var(--white);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:300;padding:11px 14px;outline:none;transition:border-color .2s;resize:none}
+.fi-input::placeholder,.fi-ta::placeholder{color:#333}
+.fi-input:focus,.fi-ta:focus{border-color:var(--teal-3)}
+.fi-ta{height:80px;line-height:1.6}
+.fi-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.form-nav{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:8px}
+.btn-back{background:transparent;color:#444;border:1px solid #2A2A28;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:10px 16px;border-radius:2px;cursor:pointer;transition:color .2s,border-color .2s}
+.btn-back:hover{color:#AAA;border-color:#555}
+.btn-next{background:var(--teal);color:var(--white);border:none;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:10px 20px;border-radius:2px;cursor:pointer;display:flex;align-items:center;gap:7px;position:relative;overflow:hidden;animation:pulseTeal 2.5s ease-in-out infinite;transition:background .2s,transform .2s}
+.btn-next::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,0.18) 50%,transparent 65%);transform:translateX(-100%);animation:sheen 2.5s ease-in-out infinite}
+.btn-next:hover{background:var(--teal-2);transform:translateY(-1px);animation:none}
+.form-success{display:none;padding:28px 20px;text-align:center}
+.success-ico{width:52px;height:52px;background:var(--teal-glow);border:1px solid var(--teal-3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:20px;animation:popIn .4s ease}
+@keyframes popIn{from{transform:scale(0)}to{transform:scale(1)}}
+.success-h{font-family:'Fraunces',serif;font-size:24px;color:var(--white);margin-bottom:.5rem}
+.success-h em{font-style:italic;color:var(--teal-3)}
+.success-p{font-size:12.5px;color:#888;line-height:1.7;font-weight:300;margin-bottom:1.4rem}
+
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-bg-word{display:none}
+  .about-inner{grid-template-columns:1fr;gap:2rem}
+  .services-grid{grid-template-columns:1fr}
+  .process-horiz{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .form-wrap{grid-template-columns:1fr;gap:2.5rem;padding:4rem 0}
+}
+@media(max-width:560px){
+  .process-horiz{grid-template-columns:1fr}
+  .fi-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">Jithin <em>George</em></a>
+  <button class="nav-toggle" id="navT" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navL">
+    <a href="index.html" class="active">Home</a>
+    <a href="product-marketing.html">Product Marketing</a>
+    <a href="demand-gen.html">Demand Gen</a>
+    <a href="growth-marketing.html">Growth Marketing</a>
+    <a href="#diagnose" class="nav-cta">Free Diagnosis</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-word">GTM</div>
+  <div class="wrap" style="width:100%">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-eyebrow">B2B SaaS · Product Marketing · Demand Gen · Growth</div>
+        <h1 class="hero-h1">
+          Your GTM<br>deserves to
+          <em class="indent">actually work.</em>
+        </h1>
+        <p class="hero-p">I help B2B SaaS companies build positioning that converts, demand engines that compound, and growth systems that scale — from ICP definition to revenue attribution.</p>
+        <div class="hero-actions">
+          <a href="#diagnose" class="btn-primary">Diagnose My Growth →</a>
+          <a href="https://wa.me/919895391057" target="_blank" class="btn-wa">📱 WhatsApp Me</a>
+        </div>
+        <div class="hero-stat-row">
+          <div class="stat-item"><div class="n">9+</div><div class="l">Years B2B SaaS</div></div>
+          <div class="stat-item"><div class="n">3×</div><div class="l">Pipeline Growth</div></div>
+          <div class="stat-item"><div class="n">80%</div><div class="l">More Qualified Leads</div></div>
+          <div class="stat-item"><div class="n">−18%</div><div class="l">Cost Per Lead</div></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem">Three Areas of Specialisation</div>
+        <div class="service-preview-grid">
+          <a href="product-marketing.html" class="spv">
+            <div class="spv-left">
+              <span class="spv-icon">🎯</span>
+              <div>
+                <div class="spv-label">Product Marketing</div>
+                <div class="spv-sub">Positioning · GTM · Sales Enablement</div>
+              </div>
+            </div>
+            <span class="spv-tag tag-teal">PMM</span>
+            <span class="spv-arrow">→</span>
+          </a>
+          <a href="demand-gen.html" class="spv">
+            <div class="spv-left">
+              <span class="spv-icon">📈</span>
+              <div>
+                <div class="spv-label">Demand Generation</div>
+                <div class="spv-sub">Inbound · ABM · Paid Media · Lifecycle</div>
+              </div>
+            </div>
+            <span class="spv-tag tag-amber">Demand</span>
+            <span class="spv-arrow">→</span>
+          </a>
+          <a href="growth-marketing.html" class="spv">
+            <div class="spv-left">
+              <span class="spv-icon">🚀</span>
+              <div>
+                <div class="spv-label">Growth Marketing</div>
+                <div class="spv-sub">Content Ecosystem · SEO · Attribution</div>
+              </div>
+            </div>
+            <span class="spv-tag tag-dark">Growth</span>
+            <span class="spv-arrow">→</span>
+          </a>
+        </div>
+        <div class="testi" style="margin-top:1.2rem">
+          <div class="testi-text">"Jithin rebuilt our entire GTM motion. 30% more demo requests and the sales team finally had messaging they could use."</div>
+          <div class="testi-author">VP Marketing, B2B SaaS</div>
+          <div class="testi-role">Dental Practice Management · Series-funded, US market</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">GTM Strategy</span><span class="marquee-item">Product Positioning</span><span class="marquee-item">Demand Generation</span><span class="marquee-item">Sales Enablement</span><span class="marquee-item">ABM Campaigns</span><span class="marquee-item">Content Ecosystem</span><span class="marquee-item">Revenue Attribution</span><span class="marquee-item">Pipeline Growth</span><span class="marquee-item">Brand Building</span><span class="marquee-item">Competitive Intel</span><span class="marquee-item">Fractional PMM</span><span class="marquee-item">Website Messaging</span><span class="marquee-item">GTM Strategy</span><span class="marquee-item">Product Positioning</span><span class="marquee-item">Demand Generation</span><span class="marquee-item">Sales Enablement</span><span class="marquee-item">ABM Campaigns</span><span class="marquee-item">Content Ecosystem</span><span class="marquee-item">Revenue Attribution</span><span class="marquee-item">Pipeline Growth</span><span class="marquee-item">Brand Building</span><span class="marquee-item">Competitive Intel</span><span class="marquee-item">Fractional PMM</span><span class="marquee-item">Website Messaging</span>
+  </div>
+</div>
+
+<!-- ABOUT STRIP -->
+<section class="about-strip fi">
+  <div class="wrap">
+    <div class="about-inner">
+      <div class="about-img-ph">JG</div>
+      <div class="about-text">
+        <div class="section-label">About Jithin</div>
+        <h2 class="section-h">Senior PMM who owns <em>pipeline and proof.</em></h2>
+        <p class="section-sub">9+ years turning complex B2B SaaS products into revenue-generating GTM motions. I work directly with founders and marketing leaders — no account managers, no juniors. Just senior-level strategy and execution.</p>
+        <div class="kpi-list">
+          <span class="kpi-item">+25% Product Adoption</span>
+          <span class="kpi-item">+3× Pipeline</span>
+          <span class="kpi-item">+80% Qualified Leads</span>
+          <span class="kpi-item">+30% Demo Requests</span>
+          <span class="kpi-item red">−18% Cost Per Lead</span>
+          <span class="kpi-item red">−15% Sales Cycle</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-pad fi">
+  <div class="wrap">
+    <div class="section-label">What I do</div>
+    <h2 class="section-h">Three disciplines. <em>One integrated strategy.</em></h2>
+    <p class="section-sub" style="margin-bottom:2.5rem">Everything I do maps back to pipeline and revenue — not vanity metrics.</p>
+    <div class="services-grid">
+      <a href="product-marketing.html" class="svc-card">
+        <span class="svc-icon">🎯</span>
+        <h3>Product <em>Marketing</em></h3>
+        <p>ICP definition, positioning, competitive messaging, sales enablement, product launches — the full PMM stack that moves buyers from awareness to decision.</p>
+        <div class="tags"><span class="tag tag-teal">GTM</span><span class="tag tag-teal">Positioning</span><span class="tag tag-teal">Sales Enablement</span></div>
+        <div class="svc-link" style="margin-top:1.2rem">Explore PMM services</div>
+      </a>
+      <a href="demand-gen.html" class="svc-card">
+        <span class="svc-icon">📈</span>
+        <h3>Demand <em>Generation</em></h3>
+        <p>Inbound programs, paid media, ABM, HubSpot lifecycle automation, and pipeline attribution — demand engines built to fill your CRM with buyers, not leads.</p>
+        <div class="tags"><span class="tag tag-amber">Inbound</span><span class="tag tag-amber">ABM</span><span class="tag tag-amber">HubSpot</span></div>
+        <div class="svc-link" style="margin-top:1.2rem">Explore Demand Gen</div>
+      </a>
+      <a href="growth-marketing.html" class="svc-card">
+        <span class="svc-icon">🚀</span>
+        <h3>Growth <em>Marketing</em></h3>
+        <p>Content ecosystems, SEO-led growth, website messaging audits, brand building, and AI-assisted workflows — growth systems that compound over time.</p>
+        <div class="tags"><span class="tag tag-dark">SEO</span><span class="tag tag-dark">Content</span><span class="tag tag-dark">Brand</span></div>
+        <div class="svc-link" style="margin-top:1.2rem">Explore Growth services</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section-pad-sm" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap fi">
+    <div class="section-label">How I work</div>
+    <h2 class="section-h" style="margin-bottom:2rem">A structured approach, <em>every engagement.</em></h2>
+    <div class="process-horiz">
+      <div class="ph-item"><div class="ph-n">01</div><div class="ph-title">Discover</div><div class="ph-desc">ICP, buyer research, competitive landscape, and market context</div></div>
+      <div class="ph-item"><div class="ph-n">02</div><div class="ph-title">Position</div><div class="ph-desc">Messaging architecture, value propositions, buyer narratives</div></div>
+      <div class="ph-item"><div class="ph-n">03</div><div class="ph-title">Activate</div><div class="ph-desc">Launch, campaigns, content, enablement materials</div></div>
+      <div class="ph-item"><div class="ph-n">04</div><div class="ph-title">Measure</div><div class="ph-desc">Pipeline, adoption, revenue attribution, iteration</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-pad fi">
+  <div class="wrap">
+    <div class="section-label">Results</div>
+    <h2 class="section-h" style="margin-bottom:2.5rem">What clients <em>say.</em></h2>
+    <div class="testi-grid">
+      <div class="testi"><div class="testi-text">"Jithin restructured our entire positioning framework. Demo conversion jumped 30% and sales finally had something they could use."</div><div class="testi-author">VP Marketing, B2B SaaS</div><div class="testi-role">Dental Practice Management · US</div></div>
+      <div class="testi"><div class="testi-text">"We were generating traffic but no pipeline. Jithin rebuilt our demand engine from the ICP up — 80% more qualified leads in 6 months."</div><div class="testi-author">CEO, Series A SaaS</div><div class="testi-role">HRMS & LMS · India & APAC</div></div>
+      <div class="testi"><div class="testi-text">"The content ecosystem Jithin built became our primary inbound engine. 60% organic traffic growth, and the system runs itself."</div><div class="testi-author">Head of Growth, B2B SaaS</div><div class="testi-role">Enterprise SAP Software · US & APAC</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSIS FORM -->
+<section class="form-section" id="diagnose">
+  <div class="wrap">
+    <div class="form-wrap">
+      <div class="form-lhs">
+        <div class="section-label">Free GTM Diagnosis</div>
+        <h2 class="section-h">Tell me where <em>it hurts.</em></h2>
+        <p class="section-sub">4 quick questions. I'll send a personal, tailored POV on your biggest growth blocker within 24 hours.</p>
+        <div class="promise-list">
+          <div class="promise-item"><div class="promise-dot">✓</div><span>Personal reply from Jithin — not an automated sequence</span></div>
+          <div class="promise-item"><div class="promise-dot">✓</div><span>Tailored to your stage, market, and challenge</span></div>
+          <div class="promise-item"><div class="promise-dot">✓</div><span>Zero obligation — if there's no fit, I'll say so</span></div>
+          <div class="promise-item"><div class="promise-dot">✓</div><span>Or WhatsApp me directly: +91-98953 91057</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="form-panel">
+          <div class="form-panel-hdr">
+            <div class="step-dots"><div class="sdot active" id="d1"></div><div class="sdot" id="d2"></div><div class="sdot" id="d3"></div><div class="sdot" id="d4"></div></div>
+            <span class="step-lbl" id="stepLbl">Step 1 of 4</span>
+          </div>
+          <div id="fSteps">
+            <div class="form-step active" id="fs1">
+              <div class="step-q">What's your <em>biggest challenge</em> right now?</div>
+              <div class="step-hint">Select all that apply</div>
+              <div class="pill-choices" id="pc-challenges">
+                <div class="pill" onclick="toggle(this)">Weak positioning</div>
+                <div class="pill" onclick="toggle(this)">Low pipeline / lead quality</div>
+                <div class="pill" onclick="toggle(this)">No clear ICP</div>
+                <div class="pill" onclick="toggle(this)">Sales & marketing misalignment</div>
+                <div class="pill" onclick="toggle(this)">Poor product adoption</div>
+                <div class="pill" onclick="toggle(this)">New product launch</div>
+                <div class="pill" onclick="toggle(this)">Content not generating demand</div>
+                <div class="pill" onclick="toggle(this)">No attribution / unclear ROI</div>
+                <div class="pill" onclick="toggle(this)">Entering a new market</div>
+                <div class="pill" onclick="toggle(this)">Need a fractional PMM</div>
+              </div>
+              <div class="form-nav"><div></div><button class="btn-next" onclick="goStep(2)">Next →</button></div>
+            </div>
+            <div class="form-step" id="fs2">
+              <div class="step-q">Where is your <em>company</em> right now?</div>
+              <div class="step-hint">Pick one</div>
+              <div class="pill-choices" id="pc-stage">
+                <div class="pill" onclick="solo(this,'pc-stage')">Pre-revenue / Early product</div>
+                <div class="pill" onclick="solo(this,'pc-stage')">Seed / Series A — finding PMF</div>
+                <div class="pill" onclick="solo(this,'pc-stage')">Series B+ — scaling GTM</div>
+                <div class="pill" onclick="solo(this,'pc-stage')">Established — optimising growth</div>
+                <div class="pill" onclick="solo(this,'pc-stage')">Enterprise — new product/market</div>
+              </div>
+              <div class="form-nav"><button class="btn-back" onclick="goStep(1)">← Back</button><button class="btn-next" onclick="goStep(3)">Next →</button></div>
+            </div>
+            <div class="form-step" id="fs3">
+              <div class="step-q">What kind of <em>engagement</em> are you looking for?</div>
+              <div class="step-hint">Select one</div>
+              <div class="pill-choices" id="pc-eng">
+                <div class="pill" onclick="solo(this,'pc-eng')">Project-based (one-off)</div>
+                <div class="pill" onclick="solo(this,'pc-eng')">Retainer / ongoing</div>
+                <div class="pill" onclick="solo(this,'pc-eng')">Fractional PMM (embedded)</div>
+                <div class="pill" onclick="solo(this,'pc-eng')">Not sure yet</div>
+              </div>
+              <div class="form-nav"><button class="btn-back" onclick="goStep(2)">← Back</button><button class="btn-next" onclick="goStep(4)">Next →</button></div>
+            </div>
+            <div class="form-step" id="fs4">
+              <div class="step-q">How should <em>Jithin reach you?</em></div>
+              <div class="step-hint">He'll personally reply within 24 hours</div>
+              <div class="fi-row">
+                <div class="fi-group"><label class="fi-label">Name</label><input class="fi-input" id="fn" type="text" placeholder="Your name"></div>
+                <div class="fi-group"><label class="fi-label">Company</label><input class="fi-input" id="fc" type="text" placeholder="Your company"></div>
+              </div>
+              <div class="fi-group"><label class="fi-label">Email</label><input class="fi-input" id="fe" type="email" placeholder="work@company.com"></div>
+              <div class="fi-group" style="margin-bottom:14px"><label class="fi-label">Anything else? (optional)</label><textarea class="fi-ta" id="fm" placeholder="Tell me about your product, market, or what you've tried..."></textarea></div>
+              <div class="form-nav"><button class="btn-back" onclick="goStep(3)">← Back</button><button class="btn-next" onclick="submitForm()" id="submitBtn">Send Request ✦</button></div>
+            </div>
+          </div>
+          <div class="form-success" id="fSuccess">
+            <div class="success-ico">✓</div>
+            <h3 class="success-h">You're on <em>Jithin's radar</em></h3>
+            <p class="success-p">I'll review your challenge and send a tailored POV within 24 hours. Or WhatsApp me directly for a faster response.</p>
+            <a href="https://wa.me/919895391057?text=Hi%20Jithin%2C%20I%20just%20submitted%20your%20diagnosis%20form!" target="_blank" class="btn-wa" style="margin:0 auto;justify-content:center">📱 WhatsApp Jithin</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band" data-text="GROW">
+  <h2>Ready to fix your <em>GTM?</em></h2>
+  <p>Let's talk about your product, your market, and what's actually in the way.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/919895391057?text=Hi%20Jithin%2C%20I%20found%20your%20site%20and%20want%20to%20fix%20my%20GTM." target="_blank" class="btn-wa">📱 WhatsApp Me Now</a>
+    <a href="#diagnose" class="btn-ghost" style="color:var(--white);border-color:rgba(255,255,255,0.3)">Get Free Diagnosis →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div>
+    <div class="footer-brand">Jithin <em>George</em></div>
+    <div class="footer-desc">Senior Product Marketing Consultant · B2B SaaS · GTM & Revenue Growth. Based in India, working with global SaaS companies.</div>
+  </div>
+  <div class="footer-col">
+    <h5>Services</h5>
+    <a href="product-marketing.html">Product Marketing</a>
+    <a href="demand-gen.html">Demand Generation</a>
+    <a href="growth-marketing.html">Growth Marketing</a>
+    <a href="product-marketing.html#fractional">Fractional PMM</a>
+  </div>
+  <div class="footer-col">
+    <h5>Quick Links</h5>
+    <a href="index.html">Home</a>
+    <a href="#diagnose">Free Diagnosis</a>
+    <a href="https://linkedin.com/in/jithingeorge-marketing-strategist" target="_blank">LinkedIn</a>
+  </div>
+  <div class="footer-col">
+    <h5>Contact</h5>
+    <a href="mailto:4jithin@gmail.com">4jithin@gmail.com</a>
+    <a href="https://wa.me/919895391057" target="_blank">+91-98953 91057</a>
+    <a href="https://linkedin.com/in/jithingeorge-marketing-strategist" target="_blank">LinkedIn Profile</a>
+  </div>
+</footer>
+<div class="footer-bar">
+  <span>© 2025 Jithin George · Product Marketing Consultant</span>
+  <span><a href="mailto:4jithin@gmail.com">4jithin@gmail.com</a></span>
+</div>
+
+<a class="wa-float" href="https://wa.me/919895391057?text=Hi%20Jithin!" target="_blank" title="Chat on WhatsApp">📱</a>
+
+<script>
+function toggleNav(){
+  const t=document.getElementById('navT'),l=document.getElementById('navL');
+  t.classList.toggle('open');l.classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navT').classList.remove('open');
+  document.getElementById('navL').classList.remove('open');
+}));
+function toggle(el){el.classList.toggle('sel')}
+function solo(el,gid){document.querySelectorAll(`#${gid} .pill`).forEach(p=>p.classList.remove('sel'));el.classList.add('sel')}
+function goStep(n){
+  document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));
+  const st=document.getElementById(`fs${n}`);if(st)st.classList.add('active');
+  for(let i=1;i<=4;i++){
+    const d=document.getElementById(`d${i}`);
+    d.classList.remove('active','done');
+    if(i<n)d.classList.add('done');else if(i===n)d.classList.add('active');
+  }
+  document.getElementById('stepLbl').textContent=`Step ${n} of 4`;
+}
+async function submitForm(){
+  const email=document.getElementById('fe').value.trim();
+  const name=document.getElementById('fn').value.trim();
+  if(!name||!email){document.getElementById('fe').style.borderColor='#C0392B';setTimeout(()=>document.getElementById('fe').style.borderColor='',2000);return;}
+  const btn=document.getElementById('submitBtn');btn.textContent='Sending…';btn.disabled=true;
+  await new Promise(r=>setTimeout(r,1100));
+  document.getElementById('fSteps').style.display='none';
+  document.getElementById('fSuccess').style.display='block';
+}
+const io=new IntersectionObserver(els=>els.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:0.08});
+document.querySelectorAll('.fi').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

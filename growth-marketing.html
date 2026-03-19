@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Growth Marketing Services — Jithin George</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+/* ── PAGE HERO — ink/white theme ── */
+.page-hero{
+  padding:calc(var(--nav-h) + 5rem) 0 5rem;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:'GROW';
+  position:absolute;right:-2%;top:50%;transform:translateY(-50%);
+  font-family:'Fraunces',serif;font-size:clamp(120px,20vw,320px);
+  color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.04);
+  pointer-events:none;font-style:italic;white-space:nowrap;
+}
+.page-hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center}
+.ph-eyebrow{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-3);margin-bottom:1.2rem;display:inline-flex;align-items:center;gap:9px;opacity:0;animation:fadeUp .6s .05s ease forwards}
+.ph-eyebrow::before{content:'';width:24px;height:1px;background:var(--teal-3)}
+.ph-h1{font-family:'Fraunces',serif;font-size:clamp(38px,6vw,72px);line-height:1.04;font-weight:500;color:var(--white);letter-spacing:-.4px;opacity:0;animation:fadeUp .6s .15s ease forwards}
+.ph-h1 em{font-style:italic;color:var(--teal-3)}
+.ph-p{font-size:14px;color:#9A9690;line-height:1.75;font-weight:300;max-width:460px;margin:1.4rem 0 2rem;opacity:0;animation:fadeUp .6s .25s ease forwards}
+.ph-actions{display:flex;gap:11px;flex-wrap:wrap;opacity:0;animation:fadeUp .6s .35s ease forwards}
+.btn-outline-white{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;background:transparent;color:var(--white);padding:13px 26px;border-radius:2px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.25);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.btn-outline-white:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.5);transform:translateY(-1px)}
+.ph-right{opacity:0;animation:fadeUp .6s .3s ease forwards}
+.stat-dark-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);border-radius:3px;overflow:hidden}
+.sdc{background:rgba(255,255,255,0.03);padding:1.4rem;transition:background .2s}
+.sdc:hover{background:rgba(255,255,255,0.06)}
+.sdc .n{font-family:'Fraunces',serif;font-size:36px;font-style:italic;color:var(--teal-3);line-height:1}
+.sdc .l{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#666;margin-top:4px}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── GROWTH PILLARS ── */
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.pillar{background:var(--cream);padding:2rem 1.6rem;transition:background .2s;cursor:default}
+.pillar:hover{background:var(--white)}
+.pillar-ico{font-size:32px;margin-bottom:.9rem;display:block;transition:transform .3s}
+.pillar:hover .pillar-ico{transform:scale(1.1) rotate(-4deg)}
+.pillar h3{font-family:'Fraunces',serif;font-size:20px;font-weight:500;margin-bottom:.5rem}
+.pillar h3 em{font-style:italic;color:var(--teal)}
+.pillar p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* ── SERVICES ── */
+.svc-detail{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.svc-d-card{background:var(--cream);border:1px solid var(--border);border-left:2.5px solid var(--teal);border-radius:0 3px 3px 0;padding:1.8rem;transition:transform .2s,box-shadow .2s}
+.svc-d-card:hover{transform:translateX(3px);box-shadow:0 6px 24px rgba(0,0,0,0.07)}
+.sdc-icon{font-size:26px;margin-bottom:.8rem;display:block;transition:transform .3s}
+.svc-d-card:hover .sdc-icon{transform:scale(1.1) rotate(-5deg)}
+.svc-d-card h3{font-family:'Fraunces',serif;font-size:20px;font-weight:500;margin-bottom:.5rem}
+.svc-d-card h3 em{font-style:italic;color:var(--teal)}
+.svc-d-card .desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:1rem}
+.deliverables{list-style:none;display:flex;flex-direction:column;gap:5px}
+.deliverables li{font-size:12px;color:var(--muted);padding-left:16px;position:relative;font-weight:300}
+.deliverables li::before{content:'›';position:absolute;left:0;color:var(--teal-2);font-weight:700;font-size:14px;top:-1px}
+
+/* ── AI SECTION ── */
+.ai-section{background:var(--ink);position:relative;overflow:hidden}
+.ai-section::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(20,184,138,0.1) 0%,transparent 65%);top:-100px;left:-100px;pointer-events:none}
+.ai-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center;padding:5rem 0}
+.ai-tools{display:flex;flex-direction:column;gap:.5rem}
+.ai-tool{background:#111110;border:1px solid #1E1E1C;border-radius:3px;padding:1rem 1.3rem;display:flex;align-items:center;gap:12px;transition:background .2s,transform .2s}
+.ai-tool:hover{background:#161614;transform:translateX(4px)}
+.ai-tool-ico{font-size:20px;flex-shrink:0}
+.ai-tool-name{font-size:13px;font-weight:600;color:var(--white)}
+.ai-tool-desc{font-size:11px;color:#666;font-weight:300;margin-top:2px}
+.ai-tool-tag{margin-left:auto;font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:2px;flex-shrink:0;background:var(--teal-glow);color:var(--teal-3);border:1px solid rgba(20,184,138,0.2)}
+
+/* ── CONTENT ECOSYSTEM ── */
+.eco-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.eco-item{background:var(--cream);padding:1.5rem;text-align:center;transition:background .2s}
+.eco-item:hover{background:var(--white)}
+.eco-ico{font-size:26px;margin-bottom:.6rem}
+.eco-name{font-size:13px;font-weight:600;margin-bottom:.3rem}
+.eco-desc{font-size:11px;color:var(--muted);line-height:1.5;font-weight:300}
+
+/* ── BRAND SECTION ── */
+.brand-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem}
+.brand-card{background:var(--cream);border:1px solid var(--border);border-radius:3px;padding:1.5rem;transition:transform .2s,box-shadow .2s}
+.brand-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.07)}
+.brand-card h4{font-family:'Fraunces',serif;font-size:17px;font-weight:500;margin-bottom:.5rem}
+.brand-card h4 em{font-style:italic;color:var(--teal)}
+.brand-card p{font-size:12px;color:var(--muted);line-height:1.65;font-weight:300}
+
+/* ── CASE & TESTIMONIALS ── */
+.case-strip{background:var(--white);border:1px solid var(--border);border-radius:3px;overflow:hidden}
+.case-hdr{background:var(--ink);padding:1.2rem 1.8rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.case-hdr h4{font-family:'Fraunces',serif;font-size:20px;font-style:italic;color:var(--white)}
+.case-hdr .type{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#666}
+.case-body{padding:1.8rem;display:grid;grid-template-columns:1fr 1.2fr;gap:2rem}
+.case-kpi{font-size:11px;font-weight:600;padding:4px 12px;border-radius:2px}
+.case-kpi.pos{background:rgba(12,107,82,0.1);color:var(--teal);border:1px solid rgba(12,107,82,0.2)}
+.case-kpi.neg{background:rgba(192,57,43,0.08);color:var(--red);border:1px solid rgba(192,57,43,0.2)}
+
+.tools-grid{display:flex;flex-wrap:wrap;gap:8px}
+.tool-chip{font-size:11px;font-weight:500;padding:6px 13px;border-radius:2px;background:var(--cream);border:1px solid var(--border);color:var(--muted)}
+.tool-chip.hi{background:rgba(12,107,82,0.08);color:var(--teal);border-color:rgba(12,107,82,0.2);font-weight:600}
+
+@media(max-width:900px){
+  .page-hero-grid{grid-template-columns:1fr;gap:2.5rem}
+  .pillars-grid{grid-template-columns:1fr}
+  .svc-detail{grid-template-columns:1fr}
+  .ai-inner{grid-template-columns:1fr;gap:2.5rem;padding:3.5rem 0}
+  .eco-grid{grid-template-columns:1fr 1fr}
+  .brand-grid{grid-template-columns:1fr}
+  .case-body{grid-template-columns:1fr}
+}
+@media(max-width:560px){.eco-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">Jithin <em>George</em></a>
+  <button class="nav-toggle" id="navT" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navL">
+    <a href="index.html">Home</a>
+    <a href="product-marketing.html">Product Marketing</a>
+    <a href="demand-gen.html">Demand Gen</a>
+    <a href="growth-marketing.html" class="active">Growth Marketing</a>
+    <a href="index.html#diagnose" class="nav-cta">Free Diagnosis</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-grid">
+      <div>
+        <div class="ph-eyebrow">Growth Marketing Services</div>
+        <h1 class="ph-h1">Build systems that<br><em>compound over time.</em></h1>
+        <p class="ph-p">Content ecosystems, SEO engines, brand building, and AI-assisted workflows — the growth infrastructure that generates pipeline on autopilot, long after we stop working together.</p>
+        <div class="ph-actions">
+          <a href="index.html#diagnose" class="btn-primary">Get Free Growth Audit →</a>
+          <a href="https://wa.me/919895391057" target="_blank" class="btn-outline-white">📱 WhatsApp Me</a>
+        </div>
+      </div>
+      <div class="ph-right">
+        <div class="stat-dark-grid">
+          <div class="sdc"><div class="n">+60%</div><div class="l">Organic Traffic Growth</div></div>
+          <div class="sdc"><div class="n">+40%</div><div class="l">Inbound Leads</div></div>
+          <div class="sdc"><div class="n">+30%</div><div class="l">Organic Visibility</div></div>
+          <div class="sdc"><div class="n">−25%</div><div class="l">Bounce Rate</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Content Ecosystem</span><span class="marquee-item">SEO-Led Growth</span><span class="marquee-item">Website Building</span><span class="marquee-item">Brand Building</span><span class="marquee-item">AI-Assisted GTM</span><span class="marquee-item">Messaging Audit</span><span class="marquee-item">PMM Newsletter</span><span class="marquee-item">Category Design</span><span class="marquee-item">Thought Leadership</span><span class="marquee-item">Growth Infrastructure</span><span class="marquee-item">Content Ecosystem</span><span class="marquee-item">SEO-Led Growth</span><span class="marquee-item">Website Building</span><span class="marquee-item">Brand Building</span><span class="marquee-item">AI-Assisted GTM</span><span class="marquee-item">Messaging Audit</span><span class="marquee-item">PMM Newsletter</span><span class="marquee-item">Category Design</span><span class="marquee-item">Thought Leadership</span><span class="marquee-item">Growth Infrastructure</span>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="section-pad fi">
+  <div class="wrap">
+    <div class="section-label">The three growth pillars</div>
+    <h2 class="section-h" style="margin-bottom:2rem">Growth that <em>doesn't stop</em> when the campaign ends.</h2>
+    <div class="pillars-grid">
+      <div class="pillar"><span class="pillar-ico">🌳</span><h3>Build <em>compounding assets</em></h3><p>Content ecosystems, SEO engines, and brand foundations that keep generating pipeline long after the initial investment — not campaigns that vanish when the budget does.</p></div>
+      <div class="pillar"><span class="pillar-ico">🤖</span><h3>Leverage <em>AI intelligently</em></h3><p>Use modern AI tools to research faster, produce better content, and automate the repeatable parts of GTM — giving you senior-level output at a fraction of the timeline.</p></div>
+      <div class="pillar"><span class="pillar-ico">📐</span><h3>Build <em>systems, not tasks</em></h3><p>Every engagement ends with documentation, templates, and workflows your team can run. I build infrastructure, not dependency on me personally.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section-pad-sm fi" style="background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="section-label">Services</div>
+    <h2 class="section-h" style="margin-bottom:2.5rem">What's included in <em>growth engagements.</em></h2>
+    <div class="svc-detail">
+      <div class="svc-d-card">
+        <span class="sdc-icon">📚</span>
+        <h3>Content <em>Ecosystem Build</em></h3>
+        <p class="desc">A full-stack content engine — blog, newsletter, SEO, gated assets, and social distribution — designed to scale and run without constant hands-on management.</p>
+        <ul class="deliverables">
+          <li>Content strategy & topic cluster architecture</li>
+          <li>Editorial calendar (3–6 months)</li>
+          <li>SEO-optimised blog foundation (10–20 pillar pieces)</li>
+          <li>LinkedIn thought leadership program</li>
+          <li>Newsletter strategy & template design</li>
+          <li>Gated asset production (eBook, guide, template)</li>
+          <li>Content distribution playbook</li>
+        </ul>
+      </div>
+      <div class="svc-d-card">
+        <span class="sdc-icon">🌐</span>
+        <h3>Website <em>Building</em></h3>
+        <p class="desc">SaaS website design and copy from the ground up — or a full conversion-focused redesign of your existing site. Built to convert your ICP, not impress your investors.</p>
+        <ul class="deliverables">
+          <li>Full website copywriting (all pages)</li>
+          <li>Homepage, features, pricing page strategy</li>
+          <li>Landing page design & copy (PPC/organic)</li>
+          <li>CTA and conversion rate optimisation</li>
+          <li>Figma wireframes for development handoff</li>
+          <li>Website brief for design/dev teams</li>
+        </ul>
+      </div>
+      <div class="svc-d-card">
+        <span class="sdc-icon">🔎</span>
+        <h3>Website & Messaging <em>Audit</em></h3>
+        <p class="desc">A rapid but thorough audit of your homepage, pricing, and landing pages — with prioritised rewrites and conversion recommendations you can act on immediately.</p>
+        <ul class="deliverables">
+          <li>Homepage copy audit + rewrite recommendation</li>
+          <li>Pricing page messaging review</li>
+          <li>Landing page conversion analysis (top 3)</li>
+          <li>Buyer clarity score per page</li>
+          <li>Quick wins vs strategic changes roadmap</li>
+          <li>A/B test hypothesis backlog</li>
+        </ul>
+      </div>
+      <div class="svc-d-card">
+        <span class="sdc-icon">🏛️</span>
+        <h3>Brand <em>Building</em></h3>
+        <p class="desc">For companies that need to establish authority in their category — not just a logo refresh, but a full brand narrative and category design play.</p>
+        <ul class="deliverables">
+          <li>Brand voice & tone guide</li>
+          <li>Thought leadership strategy & content</li>
+          <li>Category narrative design</li>
+          <li>LinkedIn company page overhaul</li>
+          <li>Visual identity direction brief (for design teams)</li>
+          <li>Founder/CEO personal brand program</li>
+        </ul>
+      </div>
+      <div class="svc-d-card">
+        <span class="sdc-icon">🔍</span>
+        <h3>SEO-Led <em>Growth</em></h3>
+        <p class="desc">Intent-based SEO strategies built around how your buyers search — not generic keyword volume, but the search behaviour of your actual ICP.</p>
+        <ul class="deliverables">
+          <li>Buyer intent keyword research (SEMrush/Ahrefs)</li>
+          <li>Topic cluster & pillar page architecture</li>
+          <li>Competitor SEO gap analysis</li>
+          <li>On-page optimisation for existing content</li>
+          <li>Backlink strategy & outreach brief</li>
+          <li>Monthly organic performance reporting</li>
+        </ul>
+      </div>
+      <div class="svc-d-card">
+        <span class="sdc-icon">🤖</span>
+        <h3>AI-Assisted <em>Growth</em></h3>
+        <p class="desc">Harness modern AI tools to accelerate research, content production, competitive monitoring, and GTM execution — without sacrificing quality or strategy.</p>
+        <ul class="deliverables">
+          <li>AI workflow design for content production</li>
+          <li>Competitive monitoring automation (Clay + AI)</li>
+          <li>AI-assisted buyer research & persona synthesis</li>
+          <li>Prompt library for your marketing team</li>
+          <li>GTM execution playbook with AI tooling</li>
+          <li>Team workshop: AI for B2B PMM</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT ECOSYSTEM VISUAL -->
+<section class="section-pad fi">
+  <div class="wrap">
+    <div class="section-label">Content ecosystem</div>
+    <h2 class="section-h" style="margin-bottom:2rem">Everything <em>connected.</em> Everything <em>compounding.</em></h2>
+    <div class="eco-grid">
+      <div class="eco-item"><div class="eco-ico">✍️</div><div class="eco-name">SEO Blog</div><div class="eco-desc">Pillar posts + cluster articles targeting buyer intent queries at every stage.</div></div>
+      <div class="eco-item"><div class="eco-ico">📬</div><div class="eco-name">Newsletter</div><div class="eco-desc">Weekly or bi-weekly send to nurture your existing database and build owned audience.</div></div>
+      <div class="eco-item"><div class="eco-ico">🔒</div><div class="eco-name">Gated Assets</div><div class="eco-desc">eBooks, guides, templates, and tools that convert organic & paid traffic to leads.</div></div>
+      <div class="eco-item"><div class="eco-ico">💼</div><div class="eco-name">LinkedIn System</div><div class="eco-desc">Founder & company page content program to build category authority and social proof.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section class="ai-section fi">
+  <div class="wrap">
+    <div class="ai-inner">
+      <div>
+        <div class="section-label" style="color:var(--teal-3)"><span style="width:24px;height:1px;background:var(--teal-3);display:inline-block"></span> AI-Assisted Growth</div>
+        <h2 class="section-h" style="color:var(--white);margin-bottom:.8rem">Senior strategy. <em style="color:var(--teal-3)">AI-accelerated.</em></h2>
+        <p style="font-size:14px;color:#9A9690;line-height:1.75;font-weight:300;max-width:460px;margin-bottom:2rem">I use modern AI tools to do research faster, iterate on messaging quicker, and automate the repeatable. You get senior thinking — at startup speed.</p>
+        <a href="index.html#diagnose" class="btn-primary">See How I Work →</a>
+      </div>
+      <div class="ai-tools">
+        <div class="ai-tool"><span class="ai-tool-ico">🧠</span><div><div class="ai-tool-name">Claude AI</div><div class="ai-tool-desc">Research synthesis, content drafting, messaging iteration</div></div><span class="ai-tool-tag">Core</span></div>
+        <div class="ai-tool"><span class="ai-tool-ico">🔗</span><div><div class="ai-tool-name">Clay</div><div class="ai-tool-desc">Data enrichment, ICP list building, ABM outbound automation</div></div><span class="ai-tool-tag">GTM</span></div>
+        <div class="ai-tool"><span class="ai-tool-ico">📊</span><div><div class="ai-tool-name">Perplexity / Search</div><div class="ai-tool-desc">Real-time competitive research and market intelligence</div></div><span class="ai-tool-tag">Research</span></div>
+        <div class="ai-tool"><span class="ai-tool-ico">🎨</span><div><div class="ai-tool-name">Figma + AI</div><div class="ai-tool-desc">Rapid wireframing, landing page mockups, design briefs</div></div><span class="ai-tool-tag">Design</span></div>
+        <div class="ai-tool"><span class="ai-tool-ico">📝</span><div><div class="ai-tool-name">Notion AI</div><div class="ai-tool-desc">GTM documentation, playbook creation, process templates</div></div><span class="ai-tool-tag">Ops</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND SECTION -->
+<section class="section-pad fi" style="background:var(--white);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="section-label">Brand building</div>
+    <h2 class="section-h" style="margin-bottom:2rem">Category authority is a <em>growth moat.</em></h2>
+    <div class="brand-grid">
+      <div class="brand-card"><h4>Brand <em>Voice</em></h4><p>Define how your company sounds across every touchpoint — so every piece of content feels unmistakably like you, regardless of who wrote it.</p></div>
+      <div class="brand-card"><h4>Thought <em>Leadership</em></h4><p>Founder and company positioning as a category authority — through LinkedIn content, industry publications, and webinar programs.</p></div>
+      <div class="brand-card"><h4>Category <em>Design</em></h4><p>For companies ready to define — not just compete in — their category. A category narrative that shifts how buyers think about the problem space.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="section-pad fi">
+  <div class="wrap">
+    <div class="g2" style="gap:4rem;align-items:start">
+      <div>
+        <div class="section-label">Case Study</div>
+        <div class="case-strip" style="margin-top:1rem">
+          <div class="case-hdr">
+            <h4>Applexus Technologies</h4>
+            <span class="type">SAP-based FMCG Software · Enterprise, US & APAC</span>
+          </div>
+          <div class="case-body" style="grid-template-columns:1fr">
+            <div>
+              <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem">KPIs Achieved</div>
+              <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem">
+                <span class="case-kpi pos">+40% inbound leads</span>
+                <span class="case-kpi pos">+30% organic visibility</span>
+                <span class="case-kpi pos">+55% web traffic</span>
+                <span class="case-kpi neg">−25% bounce rate</span>
+              </div>
+              <ul class="deliverables" style="gap:6px">
+                <li>Enterprise value proposition & buyer messaging redesign</li>
+                <li>Intent-driven SEO & content-led GTM program</li>
+                <li>Multi-touch nurture sequences built in HubSpot</li>
+                <li>Website messaging & conversion optimisation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label">Testimonial</div>
+        <div class="testi" style="margin-top:1rem">
+          <div class="testi-text">"The content ecosystem Jithin built became our primary inbound engine. 60% organic traffic growth, and the system runs itself now — worth every rupee."</div>
+          <div class="testi-author">Head of Growth, B2B SaaS</div>
+          <div class="testi-role">SAP-based Enterprise Software · US & APAC</div>
+        </div>
+        <div style="margin-top:2rem">
+          <div class="section-label">Tools</div>
+          <div class="tools-grid" style="margin-top:.7rem">
+            <span class="tool-chip hi">SEMrush</span><span class="tool-chip hi">Ahrefs</span><span class="tool-chip hi">Claude AI</span><span class="tool-chip hi">Figma</span>
+            <span class="tool-chip">SpyFu</span><span class="tool-chip">SparkToro</span><span class="tool-chip">Canva</span><span class="tool-chip">Notion</span><span class="tool-chip">GA4</span><span class="tool-chip">Hotjar</span><span class="tool-chip">Clarity</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band" data-text="SCALE">
+  <h2>Ready to build <em>growth that compounds?</em></h2>
+  <p>Tell me about your current growth bottleneck and what you've already tried.</p>
+  <div class="cta-actions">
+    <a href="index.html#diagnose" class="btn-primary">Get Free Growth Audit →</a>
+    <a href="https://wa.me/919895391057" target="_blank" class="btn-wa">📱 WhatsApp Me</a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div><div class="footer-brand">Jithin <em>George</em></div><div class="footer-desc">Senior Product Marketing Consultant · B2B SaaS · GTM & Revenue Growth.</div></div>
+  <div class="footer-col"><h5>Services</h5><a href="product-marketing.html">Product Marketing</a><a href="demand-gen.html">Demand Generation</a><a href="growth-marketing.html">Growth Marketing</a></div>
+  <div class="footer-col"><h5>Quick Links</h5><a href="index.html">Home</a><a href="index.html#diagnose">Free Diagnosis</a><a href="https://linkedin.com/in/jithingeorge-marketing-strategist" target="_blank">LinkedIn</a></div>
+  <div class="footer-col"><h5>Contact</h5><a href="mailto:4jithin@gmail.com">4jithin@gmail.com</a><a href="https://wa.me/919895391057" target="_blank">+91-98953 91057</a></div>
+</footer>
+<div class="footer-bar"><span>© 2025 Jithin George · Product Marketing Consultant</span><span><a href="mailto:4jithin@gmail.com">4jithin@gmail.com</a></span></div>
+<a class="wa-float" href="https://wa.me/919895391057" target="_blank">📱</a>
+
+<script>
+function toggleNav(){const t=document.getElementById('navT'),l=document.getElementById('navL');t.classList.toggle('open');l.classList.toggle('open')}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('navT').classList.remove('open');document.getElementById('navL').classList.remove('open')}));
+const io=new IntersectionObserver(els=>els.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:0.08});
+document.querySelectorAll('.fi').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
